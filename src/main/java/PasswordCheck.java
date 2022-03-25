@@ -1,3 +1,13 @@
+/* PASSWORDCHECK - ein simples Programm inkl. Nutzereingabe (Freitagsaufgabe, 25.03.)
+
+Nutzer wird aufgefordert, ein neues Passwort zu vergeben
+Passwortanforderungen:
+    - min. 8 Zeichen
+    - min. 1 Zahl enthalten
+    - min. 1 Großbuchstabe enthalten
+    - min. 1 Kleinbuchstabe enthalten
+*/ 
+
 import java.util.Scanner;
 
 public class PasswordCheck {
@@ -21,7 +31,7 @@ public class PasswordCheck {
             System.out.println("Password saved.");
             return true;
         } else {
-            System.out.println("The password you have chosen is not secure enough.\n Password needs to be at least 8 characters long and contain at least 1 number, 1 lowercase and 1 uppercase letter. \n Please choose another password.");
+            System.out.println("The password you have chosen is not secure enough. \n Password needs to be at least 8 characters long and contain at least 1 number, 1 lowercase and 1 uppercase letter. \n Please choose another password.");
             return false;
         }
     }
