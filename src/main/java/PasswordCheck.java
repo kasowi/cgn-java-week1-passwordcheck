@@ -17,7 +17,7 @@ public class PasswordCheck {
     }
 
     public static boolean isPasswordValid(String password) {
-        if ((checkLength(password)) && (hasDigit(password)) && (hasUppercase(password)) && (hasLowercase(password))) {
+        if ((checkLength(password)) && (hasDigit(password)) && (hasUppercase(password)) && (hasLowercase(password)) && (isSmart(password))) {
             System.out.println("Password saved.");
             return true;
         } else {
@@ -36,7 +36,7 @@ public class PasswordCheck {
         }
     }
 
-    /*
+    /* --- im folgenden ein Fehler, den ich gemacht und später gelöst habe:
 
     public static boolean hasDigit(String password) {
         char[] charArr = new char[password.length()];
@@ -45,6 +45,8 @@ public class PasswordCheck {
         }
         return false;
     }
+
+    --- nun folgt der korrekte Code:
     */
 
     public static boolean hasDigit (String password) {
@@ -70,17 +72,21 @@ public class PasswordCheck {
     public static boolean hasLowercase(String password) {
         char[] charArr = password.toCharArray();
         for (int i = 0; i < password.length(); i++) {
-            if (Character.isLowerCase(charArr[i])) return true;
+            if (Character.isLowerCase(charArr[i])) {
+                return true;
+            }
         }
         return false;
     }
 
-    public static int addMe (int a, int b) {
-        return a + b;
+    public static boolean isSmart(String password) {
+        String[] wordParticles = {"geheim", "passwort", "password", "mypassword", "1234567", "123", "1234", "12345", "123456", "1234567"};
+        for (int i = 0; i < wordParticles.length; i++) {
+            if (password.contains(wordParticles[i])) {
+                return false;
+        }
+        }
+        return true;
     }
-
-    //public static boolean stupidPassword (String password) {
-
-    //}
 
 }
